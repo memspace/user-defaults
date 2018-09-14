@@ -28,7 +28,7 @@ static NSString *const DEFAULT_NAME = @"[DEFAULT]";
         key : [defaults objectForKey:key]
     };
     result(data);
-  else   if ([@"set" isEqualToString:call.method]) {
+  } else if ([@"set" isEqualToString:call.method]) {
     NSString *key = arguments[@"key"];
     id value = arguments[@"value"];
     [defaults setObject:value forKey:key];

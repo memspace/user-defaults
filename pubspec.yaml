@@ -1,0 +1,17 @@
+name: user_defaults
+description: Flutter plugin for reading and writing simple key-value pairs.
+version: 0.1.0
+author: anatoly.pulyaevskiy@gmail.com
+homepage:
+
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  plugin:
+    androidPackage: io.memspace.flutter.userdefaults
+    pluginClass: UserDefaultsPlugin

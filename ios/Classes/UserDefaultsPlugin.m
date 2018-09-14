@@ -24,16 +24,19 @@ static NSString *const DEFAULT_NAME = @"[DEFAULT]";
 
   if ([@"get" isEqualToString:call.method]) {
     NSString *key = arguments[@"key"];
-    NSDictionary *data = @{
-        key : [defaults objectForKey:key]
-    };
-    result(data);
+    id value = [defaults objectForKey:key];
+    result(value);
   } else if ([@"set" isEqualToString:call.method]) {
     NSString *key = arguments[@"key"];
     id value = arguments[@"value"];
     [defaults setObject:value forKey:key];
     [defaults synchronize];
     result(@YES);
+  } else if ([@"remove" isEqualToString:call.method]) {
+      NSString *key = arguments[@"key"];
+      [defaults removeObjectForKey:key];
+      [defaults synchronize];
+      result(@YES);
   } else {
     result(FlutterMethodNotImplemented);
   }
